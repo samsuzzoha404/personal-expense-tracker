@@ -32,8 +32,8 @@ const Sidebar = () => {
       {/* Logo */}
       <div className="p-6 border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Wallet className="w-6 h-6 text-white" />
+          <div className="w-10 h-10 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Wallet className="w-6 h-6 text-primary" />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent group-hover:from-purple-500 group-hover:to-pink-500 transition-all">
             ExpenseFlow

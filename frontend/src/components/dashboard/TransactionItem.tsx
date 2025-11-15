@@ -10,18 +10,18 @@ const TransactionItem = ({ description, category, amount }: TransactionItemProps
   const isNegative = amount.startsWith("-");
 
   return (
-    <div className="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-secondary/50 transition-colors border-b border-border last:border-0">
+    <div className="flex items-center justify-between py-3 px-3 rounded-xl hover:bg-muted/50 transition-all border border-border/40 hover:border-primary/30 hover:shadow-sm group">
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-foreground truncate">{description}</p>
-        <div className="flex items-center gap-2 mt-1">
-          <Badge variant="outline" className="text-xs">
+        <p className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">{description}</p>
+        <div className="flex items-center gap-2 mt-1.5">
+          <Badge variant="outline" className="text-xs font-medium bg-muted/50">
             {category}
           </Badge>
         </div>
       </div>
-      <div className="ml-4">
+      <div className="ml-4 flex-shrink-0">
         <p
-          className={`text-sm font-semibold ${
+          className={`text-sm font-bold ${
             isNegative ? "text-destructive" : "text-success"
           }`}
         >

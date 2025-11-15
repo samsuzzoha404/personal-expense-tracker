@@ -33,7 +33,7 @@ async function apiRequest(endpoint: string, options: RequestInit = {}) {
 
 export const api = {
   // Health check
-  healthCheck: () => apiRequest('/health'),
+  healthCheck: () => fetch(`${API_BASE_URL.replace('/api', '')}/health`).then(r => r.json()),
 
   // Transaction endpoints
   transactions: {

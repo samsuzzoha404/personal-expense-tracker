@@ -102,8 +102,8 @@ const Index = () => {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-2"
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Wallet className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-transform">
+                <Wallet className="w-6 h-6 text-primary" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
                 ExpenseFlow
@@ -330,8 +330,8 @@ const Index = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Wallet className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
+                <Wallet className="w-5 h-5 text-primary" />
               </div>
               <span className="font-semibold">ExpenseFlow</span>
             </div>

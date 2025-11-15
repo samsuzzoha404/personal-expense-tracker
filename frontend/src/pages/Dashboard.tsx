@@ -96,16 +96,16 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+          <div className="space-y-1">
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent tracking-tight">
               Dashboard
             </h1>
-            <p className="text-sm text-muted-foreground mt-1">
-              Welcome back, <span className="text-primary font-medium">{user?.name || "User"}</span>! 👋
+            <p className="text-sm text-muted-foreground">
+              Welcome back, <span className="text-primary font-semibold">{user?.name || "User"}</span>! 👋
             </p>
           </div>
           <AddExpenseDialog>
-            <Button size="lg" className="gradient-primary hover-glow gap-2 w-full sm:w-auto group">
+            <Button size="lg" className="gradient-primary hover-glow gap-2 w-full sm:w-auto group shadow-lg shadow-primary/20">
               <Plus className="h-5 w-5 group-hover:rotate-90 transition-transform" />
               Add Transaction
             </Button>
@@ -144,30 +144,30 @@ const Dashboard = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="p-4 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
+            <Card className="p-6 bg-card backdrop-blur-sm border border-border/60 hover:border-primary/40 hover:shadow-xl transition-all">
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground">Budget Usage</h3>
-                    <p className="text-2xl font-bold mt-1">{budgetPercentage}%</p>
+                <div className="flex justify-between items-start">
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Budget Usage</h3>
+                    <p className="text-3xl font-bold tracking-tight">{budgetPercentage}%</p>
                   </div>
-                  <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${
-                    budgetPercentage >= 90 ? 'bg-destructive/10 text-destructive' :
-                    budgetPercentage >= 70 ? 'bg-yellow-500/10 text-yellow-500' :
-                    'bg-success/10 text-success'
+                  <div className={`flex items-center gap-2 px-3 py-2 rounded-xl border-2 ${
+                    budgetPercentage >= 90 ? 'bg-destructive/10 text-destructive border-destructive/20' :
+                    budgetPercentage >= 70 ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20' :
+                    'bg-success/10 text-success border-success/20'
                   }`}>
                     {budgetPercentage >= 90 ? <TrendingDown className="w-4 h-4" /> : <TrendingUp className="w-4 h-4" />}
-                    <span className="text-sm font-medium">
+                    <span className="text-sm font-semibold">
                       {budgetPercentage >= 90 ? 'High' : budgetPercentage >= 70 ? 'Medium' : 'Good'}
                     </span>
                   </div>
                 </div>
-                <div className="w-full bg-secondary/50 rounded-full h-4 overflow-hidden">
+                <div className="w-full bg-secondary rounded-full h-5 overflow-hidden border border-border/40 shadow-inner">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min(budgetPercentage, 100)}%` }}
                     transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-                    className={`h-4 rounded-full transition-all relative overflow-hidden ${
+                    className={`h-5 rounded-full transition-all relative overflow-hidden shadow-md ${
                       budgetPercentage >= 90
                         ? "gradient-destructive"
                         : budgetPercentage >= 70
@@ -178,9 +178,15 @@ const Dashboard = () => {
                     <div className="absolute inset-0 shimmer"></div>
                   </motion.div>
                 </div>
-                <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>Spent: {formatCurrency(summary.totalExpenses)}</span>
-                  <span>Budget: {formatCurrency(summary.monthlyBudget)}</span>
+                <div className="flex justify-between text-sm font-medium pt-2">
+                  <div className="space-y-0.5">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Spent</p>
+                    <p className="text-foreground">{formatCurrency(summary.totalExpenses)}</p>
+                  </div>
+                  <div className="space-y-0.5 text-right">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Budget</p>
+                    <p className="text-foreground">{formatCurrency(summary.monthlyBudget)}</p>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -195,51 +201,73 @@ const Dashboard = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <Card className="p-4 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all h-full">
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-lg md:text-xl font-semibold text-foreground">
-                  Top Expenses
-                </h2>
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <TrendingDown className="w-5 h-5 text-primary" />
+            <Card className="p-4 md:p-6 bg-card backdrop-blur-sm border border-border/60 hover:border-primary/40 hover:shadow-xl transition-all h-full">
+              <div className="flex items-center justify-between mb-6">
+                <div className="space-y-1">
+                  <h2 className="text-lg md:text-xl font-bold text-foreground tracking-tight">
+                    Top Expenses
+                  </h2>
+                  <p className="text-xs text-muted-foreground">Your highest spending categories</p>
+                </div>
+                <div className="p-3 bg-gradient-to-br from-destructive/10 to-destructive/5 rounded-xl border border-destructive/20">
+                  <TrendingDown className="w-5 h-5 text-destructive" />
                 </div>
               </div>
               {chartData.length > 0 ? (
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
-                    <XAxis
-                      dataKey="category"
-                      stroke="hsl(var(--muted-foreground))"
-                      tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
-                      angle={-45}
-                      textAnchor="end"
-                      height={80}
-                    />
-                    <YAxis
-                      stroke="hsl(var(--muted-foreground))"
-                      tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
-                    />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "hsl(var(--card))",
-                        border: "1px solid hsl(var(--border))",
-                        borderRadius: "0.5rem",
-                        color: "hsl(var(--foreground))",
-                      }}
-                      formatter={(value: number) => formatCurrency(value)}
-                    />
-                    <Bar dataKey="amount" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]}>
-                      {chartData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.fill} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                <div className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-lg p-4 border border-border/40">
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 60 }}>
+                      <defs>
+                        {chartData.map((entry, index) => (
+                          <linearGradient key={`gradient-${index}`} id={`colorGradient-${index}`} x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor={entry.fill} stopOpacity={0.9} />
+                            <stop offset="95%" stopColor={entry.fill} stopOpacity={0.6} />
+                          </linearGradient>
+                        ))}
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.2} vertical={false} />
+                      <XAxis
+                        dataKey="category"
+                        stroke="hsl(var(--muted-foreground))"
+                        tick={{ fill: "hsl(var(--foreground))", fontSize: 11, fontWeight: 500 }}
+                        angle={-45}
+                        textAnchor="end"
+                        height={80}
+                        axisLine={{ stroke: "hsl(var(--border))", strokeWidth: 1 }}
+                      />
+                      <YAxis
+                        stroke="hsl(var(--muted-foreground))"
+                        tick={{ fill: "hsl(var(--foreground))", fontSize: 11, fontWeight: 500 }}
+                        axisLine={{ stroke: "hsl(var(--border))", strokeWidth: 1 }}
+                        tickFormatter={(value) => `$${value}`}
+                      />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: "hsl(var(--card))",
+                          border: "1px solid hsl(var(--border))",
+                          borderRadius: "0.75rem",
+                          color: "hsl(var(--foreground))",
+                          boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+                          padding: "12px",
+                        }}
+                        formatter={(value: number) => [formatCurrency(value), "Amount"]}
+                        labelStyle={{ fontWeight: 600, marginBottom: "4px" }}
+                      />
+                      <Bar dataKey="amount" fill="hsl(var(--primary))" radius={[12, 12, 0, 0]} maxBarSize={60}>
+                        {chartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={`url(#colorGradient-${index})`} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
               ) : (
-                <div className="h-[300px] flex flex-col items-center justify-center text-muted-foreground">
-                  <Wallet className="w-12 h-12 mb-4 opacity-50" />
-                  <p className="text-center">No expense data available.<br />Add your first transaction!</p>
+                <div className="h-[300px] flex flex-col items-center justify-center text-muted-foreground bg-muted/20 rounded-lg border border-dashed border-border">
+                  <div className="p-4 bg-muted/40 rounded-full mb-4">
+                    <Wallet className="w-12 h-12 opacity-50" />
+                  </div>
+                  <p className="text-center font-medium">No expense data available.</p>
+                  <p className="text-sm text-muted-foreground mt-1">Add your first transaction to see insights!</p>
                 </div>
               )}
             </Card>
@@ -251,17 +279,20 @@ const Dashboard = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <Card className="p-4 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all h-full">
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-lg md:text-xl font-semibold text-foreground">
-                  Recent Transactions
-                </h2>
-                <div className="p-2 bg-primary/10 rounded-lg">
+            <Card className="p-4 md:p-6 bg-card backdrop-blur-sm border border-border/60 hover:border-primary/40 hover:shadow-xl transition-all h-full">
+              <div className="flex items-center justify-between mb-6">
+                <div className="space-y-1">
+                  <h2 className="text-lg md:text-xl font-bold text-foreground tracking-tight">
+                    Recent Transactions
+                  </h2>
+                  <p className="text-xs text-muted-foreground">Your latest financial activity</p>
+                </div>
+                <div className="p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
                   <ArrowUpRight className="w-5 h-5 text-primary" />
                 </div>
               </div>
               {summary && summary.recentTransactions.length > 0 ? (
-                <div className="space-y-2 max-h-[300px] overflow-y-auto custom-scrollbar">
+                <div className="space-y-2 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
                   {summary.recentTransactions.map((transaction, index) => (
                     <motion.div
                       key={transaction.id}
@@ -278,9 +309,12 @@ const Dashboard = () => {
                   ))}
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center h-[200px] text-muted-foreground">
-                  <TrendingUp className="w-12 h-12 mb-4 opacity-50" />
-                  <p className="text-center">No transactions yet.<br />Start tracking your expenses!</p>
+                <div className="flex flex-col items-center justify-center h-[200px] text-muted-foreground bg-muted/20 rounded-lg border border-dashed border-border">
+                  <div className="p-4 bg-muted/40 rounded-full mb-4">
+                    <TrendingUp className="w-12 h-12 opacity-50" />
+                  </div>
+                  <p className="text-center font-medium">No transactions yet.</p>
+                  <p className="text-sm text-muted-foreground mt-1">Start tracking your expenses!</p>
                 </div>
               )}
             </Card>
