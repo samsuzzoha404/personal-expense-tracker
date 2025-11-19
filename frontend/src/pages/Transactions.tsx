@@ -88,34 +88,34 @@ const Transactions = () => {
         <div className="absolute w-96 h-96 bottom-1/4 -right-48 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
-      <div className="relative z-10 p-4 md:p-8 space-y-6">
+      <div className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 space-y-4 sm:space-y-5 md:space-y-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-3 sm:gap-4"
         >
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Transactions</h1>
-            <p className="text-sm text-muted-foreground mt-1">
+            <h1 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl font-bold text-foreground">Transactions</h1>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
               View and manage all your transactions
             </p>
           </div>
-          <div className="flex gap-2 w-full sm:w-auto">
+          <div className="flex gap-2 w-full xs:w-auto">
             <Button
               variant="outline"
               size="lg"
-              className="gap-2 flex-1 sm:flex-none hover-glow"
+              className="gap-2 flex-1 xs:flex-none hover-glow h-11 sm:h-12"
               onClick={handleExport}
               disabled={filteredTransactions.length === 0}
             >
               <Download className="h-4 w-4" />
-              Export
+              <span className="text-sm sm:text-base">Export</span>
             </Button>
             <AddExpenseDialog>
-              <Button size="lg" className="gradient-primary hover-glow gap-2 flex-1 sm:flex-none group">
-                <Plus className="h-5 w-5 group-hover:rotate-90 transition-transform" />
-                Add
+              <Button size="lg" className="gradient-primary hover-glow gap-2 flex-1 xs:flex-none group h-11 sm:h-12">
+                <Plus className="h-4 w-4 sm:h-5 sm:w-5 group-hover:rotate-90 transition-transform" />
+                <span className="text-sm sm:text-base">Add</span>
               </Button>
             </AddExpenseDialog>
           </div>
@@ -127,24 +127,24 @@ const Transactions = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="p-4 md:p-6 bg-card/80 backdrop-blur-sm border-border/50">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <Card className="p-3 sm:p-4 md:p-5 lg:p-6 bg-card/80 backdrop-blur-sm border-border/50">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {/* Search */}
-              <div className="md:col-span-2">
+              <div className="sm:col-span-2">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     placeholder="Search transactions..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9 bg-secondary/50 border-border/50 focus:border-primary transition-all"
+                    className="pl-9 h-11 bg-secondary/50 border-border/50 focus:border-primary transition-all text-sm"
                   />
                 </div>
               </div>
 
               {/* Category Filter */}
               <Select value={filterCategory} onValueChange={setFilterCategory}>
-                <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
+                <SelectTrigger className="h-11 bg-secondary/50 border-border/50 focus:border-primary text-sm">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
                 <SelectContent>
@@ -159,7 +159,7 @@ const Transactions = () => {
 
               {/* Type Filter */}
               <Select value={filterType} onValueChange={setFilterType}>
-                <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
+                <SelectTrigger className="h-11 bg-secondary/50 border-border/50 focus:border-primary text-sm">
                   <SelectValue placeholder="All Types" />
                 </SelectTrigger>
                 <SelectContent>
@@ -175,9 +175,9 @@ const Transactions = () => {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
-                className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/50"
+                className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border/50"
               >
-                <span className="text-sm text-muted-foreground">Active filters:</span>
+                <span className="text-xs sm:text-sm text-muted-foreground">Active filters:</span>
                 {searchQuery && (
                   <Badge variant="secondary" className="gap-1">
                     Search: {searchQuery}
@@ -217,16 +217,16 @@ const Transactions = () => {
           transition={{ delay: 0.2 }}
         >
           <Card className="bg-card/80 backdrop-blur-sm border-border/50 overflow-hidden">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto -mx-[1px]">
               <Table>
                 <TableHeader>
                   <TableRow className="hover:bg-transparent border-border/50">
-                    <TableHead className="font-semibold">Date</TableHead>
-                    <TableHead className="font-semibold">Description</TableHead>
-                    <TableHead className="font-semibold">Category</TableHead>
-                    <TableHead className="font-semibold">Type</TableHead>
-                    <TableHead className="text-right font-semibold">Amount</TableHead>
-                    <TableHead className="text-right font-semibold">Actions</TableHead>
+                    <TableHead className="font-semibold text-xs sm:text-sm min-w-[100px]">Date</TableHead>
+                    <TableHead className="font-semibold text-xs sm:text-sm min-w-[150px]">Description</TableHead>
+                    <TableHead className="font-semibold text-xs sm:text-sm min-w-[120px]">Category</TableHead>
+                    <TableHead className="font-semibold text-xs sm:text-sm min-w-[100px]">Type</TableHead>
+                    <TableHead className="text-right font-semibold text-xs sm:text-sm min-w-[100px]">Amount</TableHead>
+                    <TableHead className="text-right font-semibold text-xs sm:text-sm min-w-[80px]">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -239,21 +239,21 @@ const Transactions = () => {
                         transition={{ delay: 0.3 + index * 0.05 }}
                         className="border-border/50 hover:bg-secondary/30 transition-colors"
                       >
-                        <TableCell className="font-medium">
+                        <TableCell className="font-medium text-xs sm:text-sm whitespace-nowrap">
                           {formatDate(transaction.date, "MMM dd, yyyy")}
                         </TableCell>
                         <TableCell>
                           <div>
-                            <p className="font-medium">{transaction.description}</p>
+                            <p className="font-medium text-xs sm:text-sm">{transaction.description}</p>
                             {transaction.notes && (
-                              <p className="text-xs text-muted-foreground mt-1">
+                              <p className="text-[10px] xs:text-xs text-muted-foreground mt-1 line-clamp-1">
                                 {transaction.notes}
                               </p>
                             )}
                           </div>
                         </TableCell>
                         <TableCell>
-                          <Badge variant="outline" className="border-primary/30 bg-primary/5">
+                          <Badge variant="outline" className="border-primary/30 bg-primary/5 text-xs whitespace-nowrap">
                             {transaction.category}
                           </Badge>
                         </TableCell>
@@ -262,13 +262,13 @@ const Transactions = () => {
                             variant={
                               transaction.type === "expense" ? "destructive" : "default"
                             }
-                            className={transaction.type === "income" ? "bg-success hover:bg-success/80" : ""}
+                            className={`text-xs whitespace-nowrap ${transaction.type === "income" ? "bg-success hover:bg-success/80" : ""}`}
                           >
                             {transaction.type === "expense" ? "Expense" : "Income"}
                           </Badge>
                         </TableCell>
                         <TableCell
-                          className={`text-right font-semibold ${
+                          className={`text-right font-semibold text-xs sm:text-sm whitespace-nowrap ${
                             transaction.type === "expense"
                               ? "text-destructive"
                               : "text-success"
@@ -283,9 +283,9 @@ const Transactions = () => {
                               variant="ghost"
                               size="sm"
                               onClick={() => openDeleteDialog(transaction.id)}
-                              className="hover:bg-destructive/10 hover:text-destructive transition-colors"
+                              className="hover:bg-destructive/10 hover:text-destructive transition-colors h-8 w-8 p-0"
                             >
-                              <Trash2 className="h-4 w-4" />
+                              <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </Button>
                           </div>
                         </TableCell>
@@ -293,8 +293,8 @@ const Transactions = () => {
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={6} className="text-center py-8">
-                        <div className="text-muted-foreground">
+                      <TableCell colSpan={6} className="text-center py-8 px-4">
+                        <div className="text-muted-foreground text-xs sm:text-sm">
                           {transactions.length === 0
                             ? "No transactions yet. Add your first transaction!"
                             : "No transactions match your filters."}
@@ -314,9 +314,9 @@ const Transactions = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="flex justify-end gap-4 text-sm"
+            className="flex justify-center sm:justify-end gap-4 text-xs sm:text-sm px-2"
           >
-            <div className="text-muted-foreground">
+            <div className="text-muted-foreground text-center sm:text-right">
               Showing {filteredTransactions.length} of {transactions.length} transactions
             </div>
           </motion.div>

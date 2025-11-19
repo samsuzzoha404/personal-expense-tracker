@@ -151,19 +151,19 @@ const Settings = () => {
         <div className="absolute w-96 h-96 bottom-1/4 -right-48 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
       </div>
 
-      <div className="relative z-10 p-4 md:p-8 space-y-6">
+      <div className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 space-y-4 sm:space-y-5 md:space-y-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-2 sm:gap-3"
         >
-          <div className="p-3 bg-gradient-primary rounded-xl">
-            <SettingsIcon className="h-6 w-6 text-white" />
+          <div className="p-2 sm:p-2.5 md:p-3 bg-gradient-primary rounded-lg sm:rounded-xl">
+            <SettingsIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Settings</h1>
-            <p className="text-sm text-muted-foreground mt-1">
+            <h1 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl font-bold text-foreground">Settings</h1>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">
               Manage your account and preferences
             </p>
           </div>
@@ -175,14 +175,14 @@ const Settings = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg">
-                <UserIcon className="h-5 w-5 text-white" />
+          <Card className="p-4 sm:p-5 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+              <div className="p-1.5 sm:p-2 bg-gradient-primary rounded-lg">
+                <UserIcon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Profile</h2>
-                <p className="text-sm text-muted-foreground">Update your personal information</p>
+                <h2 className="text-lg sm:text-xl font-semibold text-foreground">Profile</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Update your personal information</p>
               </div>
             </div>
 
@@ -253,14 +253,14 @@ const Settings = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-success rounded-lg">
-                <Wallet className="h-5 w-5 text-white" />
+          <Card className="p-4 sm:p-5 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+              <div className="p-1.5 sm:p-2 bg-gradient-success rounded-lg">
+                <Wallet className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Monthly Budget</h2>
-                <p className="text-sm text-muted-foreground">Set your monthly spending limit</p>
+                <h2 className="text-lg sm:text-xl font-semibold text-foreground">Monthly Budget</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Set your monthly spending limit</p>
               </div>
             </div>
 
@@ -295,14 +295,14 @@ const Settings = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-gradient-warning rounded-lg">
-                <DollarSign className="h-5 w-5 text-white" />
+          <Card className="p-4 sm:p-5 md:p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+              <div className="p-1.5 sm:p-2 bg-gradient-warning rounded-lg">
+                <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Preferences</h2>
-                <p className="text-sm text-muted-foreground">Customize your app experience</p>
+                <h2 className="text-lg sm:text-xl font-semibold text-foreground">Preferences</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground">Customize your app experience</p>
               </div>
             </div>
 
@@ -355,23 +355,23 @@ const Settings = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card className="p-6 bg-card/80 backdrop-blur-sm border-2 border-destructive/50 hover:border-destructive transition-all">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-gradient-destructive rounded-lg">
-                <AlertTriangle className="h-5 w-5 text-white" />
+          <Card className="p-4 sm:p-5 md:p-6 bg-card/80 backdrop-blur-sm border-2 border-destructive/50 hover:border-destructive transition-all">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="p-1.5 sm:p-2 bg-gradient-destructive rounded-lg">
+                <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-destructive">Danger Zone</h2>
-                <p className="text-sm text-muted-foreground mt-1">
+                <h2 className="text-lg sm:text-xl font-semibold text-destructive">Danger Zone</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">
                   Irreversible actions - proceed with caution
                 </p>
               </div>
             </div>
 
-            <Separator className="my-4 bg-destructive/20" />
+            <Separator className="my-3 sm:my-4 bg-destructive/20" />
 
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-lg bg-destructive/5 border border-destructive/20">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-destructive/5 border border-destructive/20">
                 <div>
                   <p className="font-medium text-foreground flex items-center gap-2">
                     <Trash2 className="h-4 w-4" />

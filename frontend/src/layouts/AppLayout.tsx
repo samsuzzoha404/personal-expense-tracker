@@ -20,23 +20,23 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       </div>
 
       {/* Mobile Menu */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border px-4 py-3">
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border px-3 sm:px-4 py-2.5 sm:py-3">
         <div className="flex items-center justify-between gap-2">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Wallet className="w-5 h-5 text-primary" />
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 group">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Wallet className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </div>
-            <h1 className="text-lg font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+            <h1 className="text-base sm:text-lg font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
               ExpenseFlow
             </h1>
           </Link>
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="h-9 w-9 sm:h-10 sm:w-10">
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-64">
+            <SheetContent side="left" className="p-0 w-64 sm:w-72">
               <Sidebar />
             </SheetContent>
           </Sheet>
@@ -44,7 +44,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full md:w-auto pt-16 md:pt-0">
+      <main className="flex-1 w-full md:w-auto pt-[52px] sm:pt-[60px] md:pt-0">
         {children}
       </main>
     </div>

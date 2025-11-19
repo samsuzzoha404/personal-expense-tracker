@@ -95,32 +95,32 @@ const Index = () => {
 
       {/* Navigation */}
       <nav className="relative z-10 border-b border-border/50 backdrop-blur-lg bg-background/50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-1.5 sm:gap-2"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-transform">
-                <Wallet className="w-6 h-6 text-primary" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-transform">
+                <Wallet className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+              <span className="text-base sm:text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
                 ExpenseFlow
               </span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-1.5 sm:gap-2 md:gap-3"
             >
               <ThemeToggle />
               {user ? (
                 <>
                   <Link to="/dashboard">
-                    <Button variant="ghost" size="lg" className="gap-2">
-                      <LayoutDashboard className="w-4 h-4" />
-                      Dashboard
+                    <Button variant="ghost" size="sm" className="gap-1.5 sm:gap-2 h-9 sm:h-10 text-sm sm:text-base px-2 sm:px-3">
+                      <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <span className="hidden xs:inline">Dashboard</span>
                     </Button>
                   </Link>
                   <DropdownMenu>
@@ -176,15 +176,15 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-4 pt-20 pb-32">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+      <section className="relative z-10 container mx-auto px-3 sm:px-4 pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 md:pb-32">
+        <div className="max-w-5xl mx-auto text-center space-y-5 sm:space-y-6 md:space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
             <span>Your Financial Journey Starts Here</span>
           </motion.div>
 
@@ -192,7 +192,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold leading-tight"
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight px-2 sm:px-0"
           >
             Master Your Money with{" "}
             <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -204,7 +204,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0"
           >
             Take control of your finances with our intelligent expense tracker. 
             Visualize spending, set budgets, and achieve your financial goals with ease.
@@ -214,17 +214,17 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-stretch xs:items-center px-4 sm:px-0"
           >
-            <Link to="/signup">
-              <Button size="lg" className="gradient-primary text-lg px-8 py-6 hover-glow group">
+            <Link to="/signup" className="w-full xs:w-auto">
+              <Button size="lg" className="gradient-primary text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 hover-glow group w-full xs:w-auto">
                 Start Free Today
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/login">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                <PieChart className="mr-2 w-5 h-5" />
+            <Link to="/login" className="w-full xs:w-auto">
+              <Button size="lg" variant="outline" className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full xs:w-auto">
+                <PieChart className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 View Demo
               </Button>
             </Link>
@@ -235,16 +235,16 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-8 sm:pt-10 md:pt-12 px-2 sm:px-0"
           >
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50"
+                className="flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-card/50 backdrop-blur-sm border border-border/50"
               >
-                <stat.icon className="w-6 h-6 text-primary" />
-                <div className="text-3xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <div className="text-2xl sm:text-3xl font-bold">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground text-center">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -252,13 +252,13 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="relative z-10 container mx-auto px-4 py-20">
-        <div className="text-center space-y-4 mb-16">
+      <section className="relative z-10 container mx-auto px-3 sm:px-4 py-12 sm:py-16 md:py-20">
+        <div className="text-center space-y-3 sm:space-y-4 mb-10 sm:mb-12 md:mb-16 px-2 sm:px-0">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold"
+            className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold"
           >
             Everything You Need to{" "}
             <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
@@ -270,13 +270,13 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0"
           >
             Powerful features designed to help you achieve your financial goals
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 px-2 sm:px-0">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -285,12 +285,12 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="p-6 h-full hover-glow bg-card/50 backdrop-blur-sm border-border/50 group cursor-pointer">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <feature.icon className="w-6 h-6 text-white" />
+              <Card className="p-4 sm:p-5 md:p-6 h-full hover-glow bg-card/50 backdrop-blur-sm border-border/50 group cursor-pointer">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform`}>
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-1.5 sm:mb-2">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{feature.description}</p>
               </Card>
             </motion.div>
           ))}
@@ -298,26 +298,26 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 container mx-auto px-4 py-20">
+      <section className="relative z-10 container mx-auto px-3 sm:px-4 py-12 sm:py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-3xl p-12 md:p-16 text-center"
+          className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 lg:p-16 text-center mx-2 sm:mx-0"
         >
           <div className="absolute inset-0 gradient-animated opacity-90"></div>
-          <div className="relative z-10 space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <div className="relative z-10 space-y-4 sm:space-y-5 md:space-y-6">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white px-2 sm:px-0">
               Ready to Transform Your Finances?
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto px-4 sm:px-0">
               Join thousands of users who have taken control of their financial future
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Link to="/signup">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-stretch xs:items-center pt-2 sm:pt-4 px-4 sm:px-0">
+              <Link to="/signup" className="w-full xs:w-auto">
+                <Button size="lg" variant="secondary" className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-white text-primary hover:bg-white/90 w-full xs:w-auto">
                   Create Free Account
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </Link>
             </div>
@@ -326,16 +326,16 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-border/50 backdrop-blur-lg bg-background/50 mt-20">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
-                <Wallet className="w-5 h-5 text-primary" />
+      <footer className="relative z-10 border-t border-border/50 backdrop-blur-lg bg-background/50 mt-12 sm:mt-16 md:mt-20">
+        <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
+                <Wallet className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               </div>
-              <span className="font-semibold">ExpenseFlow</span>
+              <span className="font-semibold text-sm sm:text-base">ExpenseFlow</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center">
               © 2025 ExpenseFlow. All rights reserved.
             </p>
           </div>

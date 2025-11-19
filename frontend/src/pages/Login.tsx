@@ -63,11 +63,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden p-4">
+    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden p-3 sm:p-4">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
-          className="absolute w-[500px] h-[500px] -top-48 -left-48 bg-primary/20 rounded-full blur-3xl"
+          className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] -top-48 -left-48 bg-primary/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -79,7 +79,7 @@ const Login = () => {
           }}
         />
         <motion.div 
-          className="absolute w-[500px] h-[500px] -bottom-48 -right-48 bg-purple-500/20 rounded-full blur-3xl"
+          className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] -bottom-48 -right-48 bg-purple-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
@@ -94,7 +94,7 @@ const Login = () => {
       </div>
 
       {/* Theme Toggle - Top Right */}
-      <div className="absolute top-6 right-6 z-20">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
         <ThemeToggle />
       </div>
 
@@ -106,23 +106,23 @@ const Login = () => {
         className="w-full max-w-md relative z-10"
       >
         {/* Card */}
-        <div className="glass rounded-3xl border border-border/50 backdrop-blur-xl shadow-2xl overflow-hidden">
+        <div className="glass rounded-2xl sm:rounded-3xl border border-border/50 backdrop-blur-xl shadow-2xl overflow-hidden">
           {/* Header with Gradient Background */}
-          <div className="relative bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10 p-8 border-b border-border/50">
+          <div className="relative bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10 p-6 sm:p-8 border-b border-border/50">
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-lg relative"
+              className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-xl sm:rounded-2xl bg-gradient-primary flex items-center justify-center shadow-lg relative"
             >
-              <div className="absolute inset-0 bg-gradient-primary rounded-2xl animate-pulse opacity-50"></div>
-              <Wallet className="w-10 h-10 text-white relative z-10" />
+              <div className="absolute inset-0 bg-gradient-primary rounded-xl sm:rounded-2xl animate-pulse opacity-50"></div>
+              <Wallet className="w-8 h-8 sm:w-10 sm:h-10 text-white relative z-10" />
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-3xl font-bold text-center bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent"
+              className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent"
             >
               Welcome Back
             </motion.h1>
@@ -130,15 +130,15 @@ const Login = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-center text-muted-foreground mt-2 flex items-center justify-center gap-2"
+              className="text-center text-muted-foreground mt-1.5 sm:mt-2 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Sign in to continue your journey
             </motion.p>
           </div>
 
           {/* Form Section */}
-          <div className="p-8">{error && (
+          <div className="p-5 sm:p-6 md:p-8">{error && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -149,15 +149,15 @@ const Login = () => {
               </motion.div>
             )}
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
-                className="space-y-2"
+                className="space-y-1.5 sm:space-y-2"
               >
-                <Label htmlFor="email" className="text-foreground font-medium flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-primary" />
+                <Label htmlFor="email" className="text-foreground font-medium flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base">
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                   Email Address
                 </Label>
                 <div className="relative group">
@@ -166,7 +166,7 @@ const Login = () => {
                     type="email"
                     placeholder="you@example.com"
                     {...register("email")}
-                    className="bg-secondary/50 border-border/50 text-foreground focus:border-primary transition-all h-12 pl-4 group-hover:border-primary/50"
+                    className="bg-secondary/50 border-border/50 text-foreground focus:border-primary transition-all h-11 sm:h-12 pl-3 sm:pl-4 group-hover:border-primary/50 text-sm sm:text-base"
                   />
                 </div>
                 {errors.email && (
@@ -184,10 +184,10 @@ const Login = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                className="space-y-2"
+                className="space-y-1.5 sm:space-y-2"
               >
-                <Label htmlFor="password" className="text-foreground font-medium flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-primary" />
+                <Label htmlFor="password" className="text-foreground font-medium flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base">
+                  <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                   Password
                 </Label>
                 <div className="relative group">
@@ -196,7 +196,7 @@ const Login = () => {
                     type="password"
                     placeholder="••••••••"
                     {...register("password")}
-                    className="bg-secondary/50 border-border/50 text-foreground focus:border-primary transition-all h-12 pl-4 group-hover:border-primary/50"
+                    className="bg-secondary/50 border-border/50 text-foreground focus:border-primary transition-all h-11 sm:h-12 pl-3 sm:pl-4 group-hover:border-primary/50 text-sm sm:text-base"
                   />
                 </div>
                 {errors.password && (
@@ -214,23 +214,23 @@ const Login = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
-                className="pt-2"
+                className="pt-1 sm:pt-2"
               >
                 <Button 
                   type="submit" 
-                  className="w-full gradient-primary hover-glow h-12 text-base font-semibold group" 
+                  className="w-full gradient-primary hover-glow h-11 sm:h-12 text-sm sm:text-base font-semibold group" 
                   size="lg" 
                   disabled={isLoading}
                 >
                   {isLoading ? (
                     <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      <Loader2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
                       Signing in...
                     </>
                   ) : (
                     <>
                       Sign In
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
                 </Button>
@@ -241,13 +241,13 @@ const Login = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="relative my-6"
+              className="relative my-5 sm:my-6"
             >
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-border/50" />
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-3 text-muted-foreground font-medium">
+              <div className="relative flex justify-center text-[10px] xs:text-xs uppercase">
+                <span className="bg-background px-2 sm:px-3 text-muted-foreground font-medium">
                   Or continue with
                 </span>
               </div>
@@ -261,19 +261,19 @@ const Login = () => {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full hover-glow border-border/50 h-12 group hover:border-primary/50"
+                className="w-full hover-glow border-border/50 h-11 sm:h-12 group hover:border-primary/50 text-sm sm:text-base"
                 size="lg"
                 onClick={handleGoogleLogin}
                 disabled={isGoogleLoading || isLoading}
               >
                 {isGoogleLoading ? (
                   <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Signing in...
+                    <Loader2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
+                    <span className="text-sm sm:text-base">Signing in...</span>
                   </>
                 ) : (
                   <>
-                    <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24">
+                    <svg className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
                       <path
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                         fill="#4285F4"
@@ -291,7 +291,7 @@ const Login = () => {
                         fill="#EA4335"
                       />
                     </svg>
-                    Continue with Google
+                    <span className="text-sm sm:text-base">Continue with Google</span>
                   </>
                 )}
               </Button>
@@ -301,12 +301,12 @@ const Login = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="text-center text-sm mt-6 pt-6 border-t border-border/50"
+              className="text-center text-xs sm:text-sm mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-border/50"
             >
               <span className="text-muted-foreground">Don't have an account? </span>
               <Link to="/signup" className="text-primary hover:underline font-semibold inline-flex items-center gap-1 group">
                 Create Account
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
@@ -314,9 +314,9 @@ const Login = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
-              className="text-center mt-4"
+              className="text-center mt-3 sm:mt-4"
             >
-              <Link to="/" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/" className="text-[10px] xs:text-xs text-muted-foreground hover:text-primary transition-colors">
                 ← Back to Home
               </Link>
             </motion.div>
